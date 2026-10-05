@@ -1,0 +1,240 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Glassmorphism effects */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.glass-panel-dark {
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(51, 65, 85, 0.6);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Dark mode scrollbars & base */
+.dark body {
+  background-color: #020617;
+  color: #f8fafc;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #090d16;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* =======================================================
+   INVENTIX Dynamic Animation System
+   ======================================================= */
+@keyframes inventixShimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes inventixFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes inventixPulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.35), 0 0 30px rgba(244, 63, 94, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(139, 92, 246, 0.6), 0 0 45px rgba(244, 63, 94, 0.45);
+  }
+}
+
+@keyframes inventixAdminPulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.25), 0 0 30px rgba(244, 63, 94, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(245, 158, 11, 0.5), 0 0 45px rgba(244, 63, 94, 0.35);
+  }
+}
+
+@keyframes inventixRadar {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.15); opacity: 0.4; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+@keyframes inventixRotateSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes inventixSlideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes inventixScaleIn {
+  0% { opacity: 0; transform: scale(0.96); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* Pulse animation for live queues */
+@keyframes queuePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+.pulse-node {
+  animation: queuePulse 2s infinite ease-in-out;
+}
+
+/* Reusable animation utility classes - Vibrant Violet & Sunset Coral */
+.inventix-shimmer-text {
+  background: linear-gradient(90deg, #8b5cf6, #d946ef, #f43f5e, #fb923c, #ec4899, #8b5cf6);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: inventixShimmer 5s ease infinite;
+}
+
+.inventix-shimmer-admin {
+  background: linear-gradient(90deg, #f59e0b, #f43f5e, #a855f7, #f59e0b);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: inventixShimmer 6s ease infinite;
+}
+
+.inventix-float {
+  animation: inventixFloat 4s ease-in-out infinite;
+}
+
+.inventix-glow {
+  animation: inventixPulseGlow 3s infinite ease-in-out;
+}
+
+.inventix-admin-glow {
+  animation: inventixAdminPulseGlow 3s infinite ease-in-out;
+}
+
+.inventix-sunset-btn {
+  background: linear-gradient(135deg, #7c3aed 0%, #db2777 50%, #f43f5e 100%);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.inventix-sunset-btn:hover {
+  background: linear-gradient(135deg, #6d28d9 0%, #be185d 50%, #e11d48 100%);
+  box-shadow: 0 8px 20px -4px rgba(219, 39, 119, 0.4);
+  transform: translateY(-1px);
+}
+
+.inventix-sunset-badge {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.12) 0%, rgba(244, 63, 94, 0.12) 100%);
+  border: 1px solid rgba(244, 63, 94, 0.25);
+  color: #e11d48;
+}
+
+.inventix-rotate-slow {
+  animation: inventixRotateSlow 15s linear infinite;
+}
+
+.inventix-fade-in {
+  animation: inventixSlideUpFade 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.inventix-scale-in {
+  animation: inventixScaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.inventix-card-hover {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.inventix-card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.08), 0 6px 12px -4px rgba(0, 0, 0, 0.04);
+}
+
+/* 3D Spatial & Perspective Utilities */
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.perspective-1200 {
+  perspective: 1200px;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.animate-float {
+  animation: inventixFloat 4s ease-in-out infinite;
+}
+
+.inventix-glow-orange {
+  box-shadow: 0 0 30px rgba(255, 107, 0, 0.4), 0 0 60px rgba(244, 63, 94, 0.25);
+}
+
+/* Futuristic Cyber Scanline & Spatial Glow */
+@keyframes inventixCyberScan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes inventixHoloPulse {
+  0%, 100% {
+    box-shadow: 0 0 12px rgba(168, 85, 247, 0.25), 0 0 24px rgba(245, 158, 11, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 24px rgba(168, 85, 247, 0.45), 0 0 45px rgba(245, 158, 11, 0.3);
+  }
+}
+
+.inventix-holo-glow {
+  animation: inventixHoloPulse 4s ease-in-out infinite;
+}
+
+.will-change-transform {
+  will-change: transform;
+}
+
+
